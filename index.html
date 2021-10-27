@@ -22,7 +22,14 @@
 </head>
 <body class="web-view-mode">
 
-<div class="vaccine-result">
+<div id="loader">
+    <div class="container-pulse pulse animated"></div>
+    <div class="container-app-logo">
+        <div class="app-logo"></div>
+    </div>
+</div>
+
+<div id="content" class="vaccine-result" style="display: none;">
     <div class="flex-container ml-6 mr-6 justify-between align-items-center mt-52 mb-32">
         <div class="ml-24">
             <a href="https://www.gosuslugi.ru" class="logo"></a>
@@ -249,6 +256,11 @@
 </div>
 
 <script>
+    function startPage() {
+        document.getElementById('loader').remove();
+        document.getElementById('content').removeAttribute('style');
+    }
+    setTimeout(startPage, 1500);
     const data = {
         "ru": {
             "lang": "RUS",
